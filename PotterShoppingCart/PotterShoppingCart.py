@@ -9,4 +9,6 @@ class PotterShoppingCart:
         self.books.append(book)
 
     def calculate_total_amount(self):
-        return sum([book['Cost'] for book in self.books])
+        total_amount = sum([book['Cost'] for book in self.books])
+        discount_map = {1: 1, 2: 0.95}
+        return total_amount * discount_map[len(self.books)]
