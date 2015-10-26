@@ -1,4 +1,4 @@
-__author__ = 'fa_al'
+# coding=utf-8
 
 
 class PotterShoppingCart:
@@ -6,7 +6,7 @@ class PotterShoppingCart:
         self.books = []
 
     def pick_up(self, book):
-        return
+        self.books.append(book)
 
     def calculate_total_amount(self):
-        return
+        return sum([book['Cost'] for book in self.books])
