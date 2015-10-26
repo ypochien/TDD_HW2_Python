@@ -70,5 +70,22 @@ class PotterShoppingCartTEST(unittest.TestCase):
         expected = 320
         self.assertEqual(expected, actual)
 
+    def test_Buy_Ep1_Ep2_Ep3_Ep4_Ep5_Should_Be_375(self):
+        """
+        Scenario: 一次買了整套，一二三四五集各買了一本，價格應為100*5*0.75=375
+        :return:
+        """
+        target = PotterShoppingCart.PotterShoppingCart()
+        target.pick_up({"Name": "HollyPoter 1", "Cost": 100})
+        target.pick_up({"Name": "HollyPoter 2", "Cost": 100})
+        target.pick_up({"Name": "HollyPoter 3", "Cost": 100})
+        target.pick_up({"Name": "HollyPoter 4", "Cost": 100})
+        target.pick_up({"Name": "HollyPoter 5", "Cost": 100})
+
+        # Act
+        actual = target.calculate_total_amount()
+
+        expected = 375
+        self.assertEqual(expected, actual)
 if __name__ == '__main__':
     unittest.main()
