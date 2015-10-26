@@ -62,6 +62,7 @@ class PotterShoppingCartTEST(unittest.TestCase):
         target.pick_up({"Name": "HollyPoter 1", "Cost": 100})
         target.pick_up({"Name": "HollyPoter 2", "Cost": 100})
         target.pick_up({"Name": "HollyPoter 3", "Cost": 100})
+        target.pick_up({"Name": "HollyPoter 4", "Cost": 100})
 
         # Act
         actual = target.calculate_total_amount()
