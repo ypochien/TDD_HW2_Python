@@ -88,13 +88,14 @@ class PotterShoppingCartTEST(unittest.TestCase):
         expected = 375
         self.assertEqual(expected, actual)
 
-    def test_Buy_One_Ep1_One_Ep2_And_Two_Ep3_Should_Be_370(self):
+    def test_Buy_One_Ep1_Two_Ep2_And_Two_Ep3_Should_Be_460(self):
         """
-        Scenario: 一二集各買了一本，第三集買了兩本，價格應為10030.9 + 100 = 370
+        Scenario: 第一集買了一本，第二三集各買了兩本，價格應為100*3*0.9 + 100*2*0.95 = 460
         :return:
         """
         target = PotterShoppingCart.PotterShoppingCart()
         target.pick_up({"Name": "HollyPoter 1", "Cost": 100})
+        target.pick_up({"Name": "HollyPoter 2", "Cost": 100})
         target.pick_up({"Name": "HollyPoter 2", "Cost": 100})
         target.pick_up({"Name": "HollyPoter 3", "Cost": 100})
         target.pick_up({"Name": "HollyPoter 3", "Cost": 100})
@@ -102,7 +103,7 @@ class PotterShoppingCartTEST(unittest.TestCase):
         # Act
         actual = target.calculate_total_amount()
 
-        expected = 370
+        expected = 460
         self.assertEqual(expected, actual)
 
 
